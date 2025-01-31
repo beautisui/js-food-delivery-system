@@ -4,24 +4,22 @@ const timeElapsed = (startTime, currentTime) => {
 };
 
 const deliveryDetails = (orderStatus, initialTime) => {
-  console.log(timeElapsed(initialTime, Date.now()), "Delivering order...");
+  console.log(`${timeElapsed(initialTime, Date.now())} Delivering order...`);
   setTimeout(() => {
-    orderStatus.deliveryDetails = "Delivered by John at 7:30 PM";
+    orderStatus.deliveryDetails = `Delivered by John at 7:30 PM`;
     console.log(
-      timeElapsed(initialTime, Date.now()),
-      "Order delivered :",
+      `${timeElapsed(initialTime, Date.now())} Order delivered :`,
       orderStatus,
     );
   }, 5000);
 };
 
 const packOrder = (orderStatus, initialTime) => {
-  console.log(timeElapsed(initialTime, Date.now()), "Packing order...");
+  console.log(`${timeElapsed(initialTime, Date.now())} Packing order...`);
   setTimeout(() => {
     orderStatus.packageDetails = "Packed in eco-friendly box";
     console.log(
-      timeElapsed(initialTime, Date.now()),
-      " Order packed:",
+      `${timeElapsed(initialTime, Date.now())} Order packed:`,
       orderStatus,
     );
     deliveryDetails(orderStatus, initialTime);
@@ -30,13 +28,12 @@ const packOrder = (orderStatus, initialTime) => {
 
 const prepareFood = (orderStatus, menu, initialTime) => {
   const currentTime = Date.now();
-  console.log(timeElapsed(initialTime, currentTime), "Preparing food...");
+  console.log(`${timeElapsed(initialTime, currentTime)} Preparing food...`);
 
   setTimeout(() => {
     orderStatus.foodDetails = menu;
     console.log(
-      timeElapsed(initialTime, Date.now()),
-      "Food is ready:",
+      `${timeElapsed(initialTime, Date.now())} Food is ready:`,
       orderStatus,
     );
     packOrder(orderStatus, initialTime);
@@ -50,8 +47,7 @@ const orderReceived = (menu) => {
   orderStatus.customerID = customerID;
 
   console.log(
-    timeElapsed(initialTime, initialTime),
-    "Order received :",
+    `${timeElapsed(initialTime, initialTime)} Order received :`,
     orderStatus,
   );
   prepareFood(orderStatus, menu, initialTime);
